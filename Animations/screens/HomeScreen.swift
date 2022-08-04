@@ -34,9 +34,9 @@ struct HomeScreen: View {
             
             VStack{
                 LottieView(name: "face", play: $play)
-                    .onTapGesture {
-                        self.play += 1
-                    }
+                Button("Play") {
+                    self.play += 1
+                }
             }.tabItem {
                 Image(systemName: "clock")
                 Text("Lotte animation")
