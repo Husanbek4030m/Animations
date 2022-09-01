@@ -11,7 +11,7 @@ struct HomeScreen: View {
     @State private var half = false
     @State private var dim = false
     
-    @State var play = 0
+    @State var play:Int = 0
     
     var body: some View {
         TabView {
@@ -35,7 +35,8 @@ struct HomeScreen: View {
             VStack{
                 LottieView(name: "face", play: $play)
                 Button("Play") {
-                    self.play += 1
+                    print("click \(self.play)")
+                    self.play = self.play + 1
                 }
             }.tabItem {
                 Image(systemName: "clock")
