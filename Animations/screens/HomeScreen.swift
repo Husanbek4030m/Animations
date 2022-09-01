@@ -11,7 +11,7 @@ struct HomeScreen: View {
     @State private var half = false
     @State private var dim = false
     
-    @State var play = 0
+    @State var play = true
     
     var body: some View {
         TabView {
@@ -33,11 +33,19 @@ struct HomeScreen: View {
             }.tag(0)
             
             VStack{
-                LottieView(name: "logo", play: $play)
-                Button("Play") {
-                    print("click \(self.play)")
-                    self.play = self.play + 1
+                LottieView(fileName: "logo", isEnabled: self.play)
+                    .frame(width: 200, height: 200, alignment: .center)
+               
+                Button {
+                    self.play.toggle()
+                } label: {
+                    Text(self.play ? "Click (Running...)" : "Click (Stopped!!!)")
                 }
+
+                
+                
+                
+                
             }.tabItem {
                 Image(systemName: "clock")
                 Text("Lotte animation")
